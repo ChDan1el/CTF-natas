@@ -2,7 +2,7 @@
 
 O CTF [Natas](https://overthewire.org/wargames/natas/) é um desafio focado em hacking real, tendo fases de 1 a 34, aumentando o nível de dificuldade e conhecimento ao extremo.
 
-## [Fase 0](http://natas0.natas.labs.overthewire.org)
+## [natas0](http://natas0.natas.labs.overthewire.org)
 
 A primeira fase é uma etapa da introdução do CTF
 
@@ -12,7 +12,7 @@ Inspecionando a página já se encontra a flag
 
 **FLAG:** 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
 
-## [Fase 1](http://natas1.natas.labs.overthewire.org)
+## [natas1](http://natas1.natas.labs.overthewire.org)
 Tentei inspecionar o HTML com o botão direito, mas não fui permitido
 
 [![Captura-de-tela-2025-11-05-110059.png](https://i.postimg.cc/Sxj5pNJQ/Captura-de-tela-2025-11-05-110059.png)](https://postimg.cc/qNVQsrsW)
@@ -23,7 +23,7 @@ Então uso um comando de teclado que inspeciona uma página, Ctrl + U e já enco
 
 **FLAG:** TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI
 
-## [Fase 2](http://natas2.natas.labs.overthewire.org)
+## [natas2](http://natas2.natas.labs.overthewire.org)
 
 Usando o comando Ctrl + U na página sou redirecionado para o HTLM.
 
