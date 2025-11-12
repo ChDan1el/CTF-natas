@@ -101,7 +101,15 @@ Ganhando o acesso a página consigo a flag
 
 **FLAG:** 0n35PkggAPm2zbEpOU802c0x0Msn1ToK
 
+## [natas5](http://natas5.natas.labs.overthewire.org)
+###### Usuário: natas5
+###### Senha: 0n35PkggAPm2zbEpOU802c0x0Msn1ToK
 
+Acesso negado, pois não estou *logado*. Isso dá uma dica sobre os [cookies](https://www.kaspersky.com.br/resource-center/definitions/cookies) do site
+
+<img width="656" height="235" alt="image" src="https://github.com/user-attachments/assets/8d942baa-d3b1-45d3-9cce-c9b1d4a8e535" />
+
+O valor de **loggedin** está com valor 0, oque normalmente significa negação, então defino o valor como 1, recarrego a página e logo é mostrado a flag
 
 
 
