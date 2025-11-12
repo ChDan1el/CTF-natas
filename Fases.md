@@ -111,5 +111,9 @@ Acesso negado, pois não estou *logado*. Isso dá uma dica sobre os [cookies](ht
 
 O valor de **loggedin** está com valor 0, oque normalmente significa negação, então defino o valor como 1, recarrego a página e logo é mostrado a flag
 
+[![Captura-de-tela-2025-11-12-125652.png](https://i.postimg.cc/sXzfNT5h/Captura-de-tela-2025-11-12-125652.png)](https://postimg.cc/R3Pz3QsS)
+
+**FLAG:** 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+
 
 
