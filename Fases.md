@@ -114,5 +114,12 @@ O valor de **loggedin** está definido como 0, o que normalmente indica negaçã
 
 **FLAG:** 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
 
+## [natas6](http://natas6.natas.labs.overthewire.org)
+###### Usuário: natas6
+###### Senha: 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+
+
+**FLAG:** bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+
 
 
