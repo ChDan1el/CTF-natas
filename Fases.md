@@ -121,5 +121,15 @@ O valor de **loggedin** está definido como 0, o que normalmente indica negaçã
 
 **FLAG:** bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
 
+## [natas7](http://natas7.natas.labs.overthewire.org)
+###### Usuário: natas7
+###### Senha: bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
 
 
+**FLAG:** xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
+
+## [natas8](http://natas8.natas.labs.overthewire.org)
+###### Usuário: natas8
+###### Senha: xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
+
+**FLAG:** ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
