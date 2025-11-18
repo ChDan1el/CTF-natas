@@ -6,9 +6,7 @@ O CTF [Natas](https://overthewire.org/wargames/natas/) é um desafio focado em h
 ###### Usuário: natas0
 ###### Senha: natas0
 
-A primeira fase é uma etapa da introdução do CTF
-
-Inspecionando a página já se encontra a *flag*
+Quando começamos uma questão de web hacking, o primeiro procedimento é verificar o HTML do site. E aqui já está a *flag*
 
 [![Captura-de-tela-2025-11-05-105804.png](https://i.postimg.cc/VLJ5rnh4/Captura-de-tela-2025-11-05-105804.png)](https://postimg.cc/56MfDYbF)
 
@@ -17,6 +15,8 @@ Inspecionando a página já se encontra a *flag*
 ## [natas1](http://natas1.natas.labs.overthewire.org)
 ###### Usuário: natas1
 ###### Senha: 0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq
+
+Essa questão é semelhante ao natas0
 
 Tentei inspecionar o código HTML clicando com o botão direito, mas o site não permitiu
 
@@ -108,7 +108,12 @@ Acesso negado, pois não estou *autenticado*. Isso dá uma dica sobre os [cookie
 
 <img width="656" height="235" alt="image" src="https://github.com/user-attachments/assets/8d942baa-d3b1-45d3-9cce-c9b1d4a8e535" />
 
-O valor de **loggedin** está definido como 0, o que normalmente indica negação. Então, altero o valor para 1, recarrego a página e, em seguida, a *flag* é exibida
+O valor de **loggedin** está definido como 0, o que normalmente indica negação.
+
+<img width="1046" height="464" alt="image" src="https://github.com/user-attachments/assets/f75636ac-56c1-4f19-b5bd-d190f530a2fc" />
+
+
+Então, altero o valor para 1, recarrego a página e, em seguida, a *flag* é exibida
 
 [![Captura-de-tela-2025-11-12-125652.png](https://i.postimg.cc/sXzfNT5h/Captura-de-tela-2025-11-12-125652.png)](https://postimg.cc/R3Pz3QsS)
 
@@ -117,6 +122,25 @@ O valor de **loggedin** está definido como 0, o que normalmente indica negaçã
 ## [natas6](http://natas6.natas.labs.overthewire.org)
 ###### Usuário: natas6
 ###### Senha: 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
+
+Logo na primeira página da fase já disponibilizam o acesso do código do login, então clico para analisar
+
+<img width="621" height="205" alt="Captura de tela 2025-11-18 151244" src="https://github.com/user-attachments/assets/734e8cba-4d96-4ce4-9160-e13a06569d62" />
+
+Analisando o código percebo que ele puxa informações de outro diretório, sendo o includes/secret.inc
+
+<img width="519" height="159" alt="image" src="https://github.com/user-attachments/assets/54869012-dcb6-4d4f-ac05-b93875ea06de" />
+
+Então adiciono o nome do diretório no final da URL e consigo a senha da página
+
+<img width="445" height="33" alt="image" src="https://github.com/user-attachments/assets/7050c1ef-7632-43ca-8c84-f503d27cdd02" />
+
+<img width="313" height="78" alt="Captura de tela 2025-11-18 151436" src="https://github.com/user-attachments/assets/d1040b7d-d778-4e13-b9f0-d6044b80bf8e" />
+
+Após inserir a senha no input secret, consigo a *flag*
+
+<img width="623" height="248" alt="Captura de tela 2025-11-18 151501" src="https://github.com/user-attachments/assets/e33eafee-3e4e-40a7-8382-28976428c694" />
+
 
 
 **FLAG:** bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
