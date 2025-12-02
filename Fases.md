@@ -1,4 +1,4 @@
-<img width="1003" height="198" alt="image" src="https://github.com/user-attachments/assets/dad7e826-f3b3-4366-afb6-172df1e95deb" /># Introdução
+
 
 O CTF [Natas](https://overthewire.org/wargames/natas/) é um desafio focado em hacking real, tendo fases de 1 a 34, aumentando o nível de dificuldade e conhecimento ao extremo.
 
@@ -203,7 +203,8 @@ Então agora é só colocar essa senha na pagina inicial e ganhar a *flag*
 
 <img width="1297" height="385" alt="image" src="https://github.com/user-attachments/assets/18b2ea82-b4da-4004-96c4-2d2afbe287f5" />
 
-
-
-
 **FLAG:** ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+
+## [natas9](http://natas9.natas.labs.overthewire.org)
+###### Usuário: natas9
+###### Senha: ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
