@@ -1,4 +1,4 @@
-# Introdução
+<img width="1003" height="198" alt="image" src="https://github.com/user-attachments/assets/dad7e826-f3b3-4366-afb6-172df1e95deb" /># Introdução
 
 O CTF [Natas](https://overthewire.org/wargames/natas/) é um desafio focado em hacking real, tendo fases de 1 a 34, aumentando o nível de dificuldade e conhecimento ao extremo.
 
@@ -142,18 +142,68 @@ Após inserir a senha no input secret, consigo a *flag*
 <img width="623" height="248" alt="Captura de tela 2025-11-18 151501" src="https://github.com/user-attachments/assets/e33eafee-3e4e-40a7-8382-28976428c694" />
 
 
-
 **FLAG:** bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
 
 ## [natas7](http://natas7.natas.labs.overthewire.org)
 ###### Usuário: natas7
 ###### Senha: bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
 
+Logo na pagina inicial há somente dois botões, de *home* e *about*. Então ao clicar neles percebo um padrão de URL, sempre terminando com **index.php?page=** e o nome da pagina
+
+<img width="682" height="280" alt="Captura de tela 2025-12-01 205528" src="https://github.com/user-attachments/assets/94ad4c1b-ef1c-4527-ad4e-ec2a17d589a2" />
+
+<img width="654" height="261" alt="Captura de tela 2025-12-01 205540" src="https://github.com/user-attachments/assets/5e532944-ed3a-4269-b50d-c61144d346da" />
+
+Inspecionando o HTML encontro uma dica: A *flag* está na pagina /etc/natas_webpass/natas8
+
+<img width="912" height="730" alt="Captura de tela 2025-12-01 205558" src="https://github.com/user-attachments/assets/13767eb7-29b0-49a4-9639-f74ec10c8b5b" />
+
+Então já que a URL puxa a pagina com o nome, coloco o nome na pagina da *flag* na URL
+
+<img width="1304" height="376" alt="Captura de tela 2025-12-01 205436" src="https://github.com/user-attachments/assets/eb8f0721-4420-444b-99a1-1d2a3b832f04" />
+
+E aqui já está a *flag*
 
 **FLAG:** xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
 
 ## [natas8](http://natas8.natas.labs.overthewire.org)
 ###### Usuário: natas8
 ###### Senha: xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
+
+Logo na pagina inicial já posso analisar o código por trás do desafio
+
+<img width="1125" height="350" alt="Captura de tela 2025-12-01 212128" src="https://github.com/user-attachments/assets/3d541c7a-67d9-4345-ab7e-02a79ac85bce" />
+
+Analisando um pouco já identifico que a senha já está exposta, mas criptografada
+
+<img width="500" height="228" alt="Captura de tela 2025-12-01 212116" src="https://github.com/user-attachments/assets/c07fc9f5-911e-4f63-a9fd-b2f7ddacbea1" />
+
+A forma que o código criptografa minha entrada está na função de return, passando na ordem: Base64, *strrev* que inverte a ordem dos caracteres e por fim hexadecimal. 
+Logo depois comparando com a chave $encodedSecret.
+
+Então preciso fazer o processo inverso da função. Primeiro começo decriptando o hexadecimal
+
+<img width="1480" height="862" alt="image" src="https://github.com/user-attachments/assets/c4e32c3b-d6d5-46a5-b741-d4bb04be4b96" />
+
+Estou no caminho certo, já que o formato da senha está no padrão Base64, só que invertido. Dito isso, peço para o chatGPT inverter a ordem dos caracteres
+
+<img width="1003" height="198" alt="image" src="https://github.com/user-attachments/assets/2f888094-b45f-4485-bd08-e136d25e9844" />
+
+b3ViV1lmMmtCcQ==
+
+Depois disso decripto de Base64 para a senha
+
+<img width="1345" height="869" alt="image" src="https://github.com/user-attachments/assets/cd812e9f-d512-42cf-ae4b-4dab24a9bcc0" />
+
+oubWYf2kBq
+
+Então agora é só colocar essa senha na pagina inicial e ganhar a *flag*
+
+<img width="626" height="205" alt="image" src="https://github.com/user-attachments/assets/d092a827-e620-4e77-929d-737be5413cf4" />
+
+<img width="1297" height="385" alt="image" src="https://github.com/user-attachments/assets/18b2ea82-b4da-4004-96c4-2d2afbe287f5" />
+
+
+
 
 **FLAG:** ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
