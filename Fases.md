@@ -181,21 +181,21 @@ Analisando um pouco já identifico que a senha já está exposta, mas criptograf
 A forma que o código criptografa minha entrada está na função de return, passando na ordem: Base64, *strrev* que inverte a ordem dos caracteres e por fim hexadecimal. 
 Logo depois comparando com a chave $encodedSecret.
 
-Então preciso fazer o processo inverso da função. Primeiro começo decriptando o hexadecimal
+Então preciso fazer o processo inverso da função. Primeiro começo decriptando o hexadecimal: "3d3d516343746d4d6d6c315669563362"
 
 <img width="1480" height="862" alt="image" src="https://github.com/user-attachments/assets/c4e32c3b-d6d5-46a5-b741-d4bb04be4b96" />
 
-Estou no caminho certo, já que o formato da senha está no padrão Base64, só que invertido. Dito isso, peço para o chatGPT inverter a ordem dos caracteres
+Estou no caminho certo, já que o formato da senha está no padrão Base64, só que invertido, "==QcCtmMml1ViV3b". Dito isso, peço para o chatGPT inverter a ordem dos caracteres
 
 <img width="1003" height="198" alt="image" src="https://github.com/user-attachments/assets/2f888094-b45f-4485-bd08-e136d25e9844" />
 
-b3ViV1lmMmtCcQ==
+Invertido fica: "b3ViV1lmMmtCcQ=="
 
 Depois disso decripto de Base64 para a senha
 
 <img width="1345" height="869" alt="image" src="https://github.com/user-attachments/assets/cd812e9f-d512-42cf-ae4b-4dab24a9bcc0" />
 
-oubWYf2kBq
+A senha é: "oubWYf2kBq"
 
 Então agora é só colocar essa senha na pagina inicial e ganhar a *flag*
 
@@ -208,3 +208,66 @@ Então agora é só colocar essa senha na pagina inicial e ganhar a *flag*
 ## [natas9](http://natas9.natas.labs.overthewire.org)
 ###### Usuário: natas9
 ###### Senha: ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
+
+A função da página inicial é retornar uma palavra parecida com a string que voce digita
+
+<img width="1295" height="472" alt="image" src="https://github.com/user-attachments/assets/1d22d594-4a1d-44d2-a396-075d7546842d" />
+
+Já é disponibilizado o código do funcionamento da busca das palavras, então analiso ele
+
+<img width="370" height="220" alt="Captura de tela 2025-12-02 140246" src="https://github.com/user-attachments/assets/cd8ef165-5148-4107-bb38-c6cfa60d8a85" />
+
+É possível perceber que não há filtro na entrada, além de ela já estar imbutida no comando do shell da página,
+ou seja, uma clara vulnerabilidade de injeção de comando
+
+Então já testo essa afirmativa, começando com ; para inserir o meu comando junto com o da página
+
+<img width="627" height="276" alt="Captura de tela 2025-12-02 140331" src="https://github.com/user-attachments/assets/b2619c70-1382-43ad-9f3e-19fbc3502b01" />
+
+É retornado a lista de itens disponiveis
+
+Então uso uma informação que o OverTheWire passa logo no começo do CTF
+
+<img width="1540" height="64" alt="image" src="https://github.com/user-attachments/assets/063e4c47-9d30-4657-9af3-c38d23312e87" />
+
+Uso dessa dica e procuro esse arquivo oculto: ;ls /etc/natas_webpass/natas10
+
+<img width="624" height="287" alt="image" src="https://github.com/user-attachments/assets/f43691fe-be64-4993-8616-57abc8ccb8d3" />
+
+Essa pasta existe. Então vou ler oque há nela com o comando **cat**, sendo ;cat /etc/natas_webpass/natas10
+
+<img width="505" height="226" alt="Captura de tela 2025-12-02 145140" src="https://github.com/user-attachments/assets/d37e0476-305a-48e6-881a-a3e770378cba" />
+
+E aí já está a *flag*
+
+**FLAG:** t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+
+## [natas10](http://natas10.natas.labs.overthewire.org)
+###### Usuário: natas10
+###### Senha: t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+
+O desafio 10 é basicamente o natas9, mas com filtro. 
+
+<img width="1385" height="503" alt="Captura de tela 2025-12-02 151046" src="https://github.com/user-attachments/assets/8a0de51a-db22-47c3-87fd-87a3846a393a" />
+
+Não funcionou, então olho o código por trás da pesquisa
+
+<img width="446" height="289" alt="Captura de tela 2025-12-02 151120" src="https://github.com/user-attachments/assets/ca8b8ce5-e346-46ea-bacf-b3e56d7e15b0" />
+
+O filtro funciona somente para esses caracteres especiais, '/[;|&]/', mas o $ não está lista, funcionando tambem como inserção de comando
+
+<img width="610" height="563" alt="Captura de tela 2025-12-02 151149" src="https://github.com/user-attachments/assets/64c36d7a-191f-43fe-ac52-11e4a0f4f6ff" />
+
+Funcionou, então usarei para achar a pasta onde está a *flag* e le-la, sendo o comando: $ cat /etc/natas_webpass/natas11
+
+<img width="612" height="274" alt="Captura de tela 2025-12-02 151210" src="https://github.com/user-attachments/assets/6c4101b5-f409-4052-b2cf-224a2b383b71" />
+
+E aqui já está a *flag*
+
+**FLAG:** UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+
+## [natas11](http://natas11.natas.labs.overthewire.org)
+###### Usuário: natas11
+###### Senha: UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
+
+
