@@ -296,6 +296,10 @@ O cookie vale: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D", mas
 
 Corrigindo fica: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg="
 
+Após decodificar parcialmente a string base64 para bytes: 1e 66 24 07 0a 33 27 0e 16
+
+*Infelizmente não consegui concluir o desafio a tempo de entregam, mas continuarei estudando o natas até a última fase para melhorar meu conhecimento acerca 
+do web hacking*
 
 
 ## Conclusão
