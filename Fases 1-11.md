@@ -296,5 +296,3 @@ O cookie vale: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D", mas
 
 Corrigindo fica: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg="
 
-**FLAG:** yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
-
