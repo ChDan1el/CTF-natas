@@ -1,6 +1,11 @@
+# OverTheWire
 
+[OverTheWire](https://overthewire.org/wargames/) é uma plataforma de wargames criada para ensinar segurança ofensiva e defensiva por meio de desafios práticos. Cada jogo é dividido em níveis, e cada nível funciona como um pequeno laboratório onde o objetivo é encontrar uma flag (geralmente uma senha) para avançar ao próximo estágio.
 
-O CTF [Natas](https://overthewire.org/wargames/natas/) é um desafio focado em hacking real, tendo fases de 1 a 34, aumentando o nível de dificuldade e conhecimento ao extremo.
+# Natas 
+
+[Natas](https://overthewire.org/wargames/natas/) é um dos wargames mais conhecidos do OverTheWire, focado exclusivamente em segurança web.
+Cada nível apresenta uma página vulnerável hospedada em um servidor real. O objetivo é analisar essa página e identificar a falha que permite revelar a password do próximo nível.
 
 ## [natas0](http://natas0.natas.labs.overthewire.org)
 ###### Usuário: natas0
@@ -123,15 +128,15 @@ Então, altero o valor para 1, recarrego a página e, em seguida, a *flag* é ex
 ###### Usuário: natas6
 ###### Senha: 0RoJwHdSKWFTYR5WuiAewauSuNaBXned
 
-Logo na primeira página da fase já disponibilizam o acesso do código do login, então clico para analisar
+Logo na primeira página da fase, o código do login já está disponível, então abro para analisá-lo
 
 <img width="621" height="205" alt="Captura de tela 2025-11-18 151244" src="https://github.com/user-attachments/assets/734e8cba-4d96-4ce4-9160-e13a06569d62" />
 
-Analisando o código percebo que ele puxa informações de outro diretório, sendo o includes/secret.inc
+Ao analisar o código, percebo que ele importa dados de outro diretório, especificamente de includes/secret.inc
 
 <img width="519" height="159" alt="image" src="https://github.com/user-attachments/assets/54869012-dcb6-4d4f-ac05-b93875ea06de" />
 
-Então adiciono o nome do diretório no final da URL e consigo a senha da página
+Em seguida, adiciono o caminho do diretório ao final da URL e, ao acessá-lo, obtenho a senha da página
 
 <img width="445" height="33" alt="image" src="https://github.com/user-attachments/assets/7050c1ef-7632-43ca-8c84-f503d27cdd02" />
 
@@ -141,24 +146,26 @@ Após inserir a senha no input secret, consigo a *flag*
 
 <img width="623" height="248" alt="Captura de tela 2025-11-18 151501" src="https://github.com/user-attachments/assets/e33eafee-3e4e-40a7-8382-28976428c694" />
 
-
 **FLAG:** bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
+
 
 ## [natas7](http://natas7.natas.labs.overthewire.org)
 ###### Usuário: natas7
 ###### Senha: bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
 
-Logo na pagina inicial há somente dois botões, de *home* e *about*. Então ao clicar neles percebo um padrão de URL, sempre terminando com **index.php?page=** e o nome da pagina
+Na página inicial há apenas dois botões, *home* e *about*. Ao acessá-los, noto um padrão na URL: ela sempre utiliza o formato
+
+"index.php?page=nome_da_pagina"
 
 <img width="682" height="280" alt="Captura de tela 2025-12-01 205528" src="https://github.com/user-attachments/assets/94ad4c1b-ef1c-4527-ad4e-ec2a17d589a2" />
 
 <img width="654" height="261" alt="Captura de tela 2025-12-01 205540" src="https://github.com/user-attachments/assets/5e532944-ed3a-4269-b50d-c61144d346da" />
 
-Inspecionando o HTML encontro uma dica: A *flag* está na pagina /etc/natas_webpass/natas8
+Inspecionando o código-fonte da página, encontro uma dica indicando que a *flag* está localizada em /etc/natas_webpass/natas8
 
 <img width="912" height="730" alt="Captura de tela 2025-12-01 205558" src="https://github.com/user-attachments/assets/13767eb7-29b0-49a4-9639-f74ec10c8b5b" />
 
-Então já que a URL puxa a pagina com o nome, coloco o nome na pagina da *flag* na URL
+Como a URL carrega páginas com base no parâmetro informado, substituo o nome da página pelo caminho da *flag* diretamente na URL
 
 <img width="1304" height="376" alt="Captura de tela 2025-12-01 205436" src="https://github.com/user-attachments/assets/eb8f0721-4420-444b-99a1-1d2a3b832f04" />
 
@@ -170,28 +177,27 @@ E aqui já está a *flag*
 ###### Usuário: natas8
 ###### Senha: xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q
 
-Logo na pagina inicial já posso analisar o código por trás do desafio
+Assim que acesso a página inicial, já tenho a opção de visualizar o código por trás do desafio
 
 <img width="1125" height="350" alt="Captura de tela 2025-12-01 212128" src="https://github.com/user-attachments/assets/3d541c7a-67d9-4345-ab7e-02a79ac85bce" />
 
-Analisando um pouco já identifico que a senha já está exposta, mas criptografada
+Analisando um pouco, já identifico que a senha está exposta, porém criptografada
 
 <img width="500" height="228" alt="Captura de tela 2025-12-01 212116" src="https://github.com/user-attachments/assets/c07fc9f5-911e-4f63-a9fd-b2f7ddacbea1" />
 
-A forma que o código criptografa minha entrada está na função de return, passando na ordem: Base64, *strrev* que inverte a ordem dos caracteres e por fim hexadecimal. 
-Logo depois comparando com a chave $encodedSecret.
+A forma como o código criptografa minha entrada está na função de return, aplicando, nesta ordem: Base64, strrev (que inverte a ordem dos caracteres) e, por fim, hexadecimal. Depois disso, o resultado é comparado com a chave $encodedSecret
 
-Então preciso fazer o processo inverso da função. Primeiro começo decriptando o hexadecimal: "3d3d516343746d4d6d6c315669563362"
+Para obter a senha, faço o processo inverso. O primeiro passo é decodificar o hexadecimal: "3d3d516343746d4d6d6c315669563362"
 
 <img width="1480" height="862" alt="image" src="https://github.com/user-attachments/assets/c4e32c3b-d6d5-46a5-b741-d4bb04be4b96" />
 
-Estou no caminho certo, já que o formato da senha está no padrão Base64, só que invertido, "==QcCtmMml1ViV3b". Dito isso, peço para o chatGPT inverter a ordem dos caracteres
+Percebo que estou no caminho certo, pois o valor obtido tem o formato típico de uma string em Base64, só que invertida: '==QcCtmMml1ViV3b'. Com isso, peço ao ChatGPT para reverter a ordem dos caracteres
 
 <img width="1003" height="198" alt="image" src="https://github.com/user-attachments/assets/2f888094-b45f-4485-bd08-e136d25e9844" />
 
 Invertido fica: "b3ViV1lmMmtCcQ=="
 
-Depois disso decripto de Base64 para a senha
+Depois disso, basta decodificar o resultado em Base64 para finalmente obter a senha
 
 <img width="1345" height="869" alt="image" src="https://github.com/user-attachments/assets/cd812e9f-d512-42cf-ae4b-4dab24a9bcc0" />
 
@@ -209,32 +215,31 @@ Então agora é só colocar essa senha na pagina inicial e ganhar a *flag*
 ###### Usuário: natas9
 ###### Senha: ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t
 
-A função da página inicial é retornar uma palavra parecida com a string que voce digita
+A função da página inicial basicamente retorna uma palavra semelhante à string que você digita
 
 <img width="1295" height="472" alt="image" src="https://github.com/user-attachments/assets/1d22d594-4a1d-44d2-a396-075d7546842d" />
 
-Já é disponibilizado o código do funcionamento da busca das palavras, então analiso ele
+O código responsável pela busca das palavras já é disponibilizado na página, então começo analisando seu funcionamento
 
 <img width="370" height="220" alt="Captura de tela 2025-12-02 140246" src="https://github.com/user-attachments/assets/cd8ef165-5148-4107-bb38-c6cfa60d8a85" />
 
-É possível perceber que não há filtro na entrada, além de ela já estar imbutida no comando do shell da página,
-ou seja, uma clara vulnerabilidade de injeção de comando
+Percebo que não existe qualquer filtro na entrada, e ela ainda é inserida diretamente no comando de shell da página — uma vulnerabilidade evidente de **command injection**
 
-Então já testo essa afirmativa, começando com ; para inserir o meu comando junto com o da página
+Para confirmar a vulnerabilidade, começo testando com um ";", permitindo inserir meu próprio comando logo após o comando original da página
 
 <img width="627" height="276" alt="Captura de tela 2025-12-02 140331" src="https://github.com/user-attachments/assets/b2619c70-1382-43ad-9f3e-19fbc3502b01" />
 
 É retornado a lista de itens disponiveis
 
-Então uso uma informação que o OverTheWire passa logo no começo do CTF
+Então, utilizo uma informação que o OverTheWire fornece logo no começo do CTF
 
 <img width="1540" height="64" alt="image" src="https://github.com/user-attachments/assets/063e4c47-9d30-4657-9af3-c38d23312e87" />
 
-Uso dessa dica e procuro esse arquivo oculto: ;ls /etc/natas_webpass/natas10
+Uso essa dica e procuro pelo arquivo oculto: ;ls /etc/natas_webpass/natas10
 
 <img width="624" height="287" alt="image" src="https://github.com/user-attachments/assets/f43691fe-be64-4993-8616-57abc8ccb8d3" />
 
-Essa pasta existe. Então vou ler oque há nela com o comando **cat**, sendo ;cat /etc/natas_webpass/natas10
+Como o diretório realmente existe, sigo para ler seu conteúdo utilizando o comando **cat**: ;cat /etc/natas_webpass/natas10
 
 <img width="505" height="226" alt="Captura de tela 2025-12-02 145140" src="https://github.com/user-attachments/assets/d37e0476-305a-48e6-881a-a3e770378cba" />
 
@@ -246,19 +251,21 @@ E aí já está a *flag*
 ###### Usuário: natas10
 ###### Senha: t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
 
-O desafio 10 é basicamente o natas9, mas com filtro. 
+O desafio 10 é basicamente o natas9, mas com filtro no *input*. 
 
 <img width="1385" height="503" alt="Captura de tela 2025-12-02 151046" src="https://github.com/user-attachments/assets/8a0de51a-db22-47c3-87fd-87a3846a393a" />
 
-Não funcionou, então olho o código por trás da pesquisa
+Como o comando não funcionou, volto ao código da função de busca para entender o que está acontecendo
 
 <img width="446" height="289" alt="Captura de tela 2025-12-02 151120" src="https://github.com/user-attachments/assets/ca8b8ce5-e346-46ea-bacf-b3e56d7e15b0" />
 
-O filtro funciona somente para esses caracteres especiais, '/[;|&]/', mas o $ não está lista, funcionando tambem como inserção de comando
+O filtro bloqueia apenas os caracteres /[;|&]/, mas o $ não está entre eles. Isso significa que ainda é possível injetar comandos usando o operador $
 
 <img width="610" height="563" alt="Captura de tela 2025-12-02 151149" src="https://github.com/user-attachments/assets/64c36d7a-191f-43fe-ac52-11e4a0f4f6ff" />
 
-Funcionou, então usarei para achar a pasta onde está a *flag* e le-la, sendo o comando: $ cat /etc/natas_webpass/natas11
+Com isso funcionando, utilizo o operador $ para acessar o arquivo da flag e lê-lo diretamente:
+
+$ cat /etc/natas_webpass/natas11
 
 <img width="612" height="274" alt="Captura de tela 2025-12-02 151210" src="https://github.com/user-attachments/assets/6c4101b5-f409-4052-b2cf-224a2b383b71" />
 
@@ -270,4 +277,24 @@ E aqui já está a *flag*
 ###### Usuário: natas11
 ###### Senha: UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
 
+Após acessar a página já tenho algumas informções, os cookies do site estão encriptados em XOR
+e o input faz o fundo mudar de cor de acordo com o código
+
+<img width="1010" height="353" alt="Captura de tela 2025-12-02 220852" src="https://github.com/user-attachments/assets/5cf0c312-ff36-4400-868c-3547f446252b" />
+
+Apesar disso, vou direto olhar o código do sistema
+
+<img width="797" height="753" alt="Captura de tela 2025-12-02 220941" src="https://github.com/user-attachments/assets/7faa8022-870f-47ca-9c6e-1282c7fda495" />
+
+Analisando ele percebo que o objetivo é fazer o "showpassword" ter o valor "yes" para conseguir a *flag*
+
+Usando a dica do cookie, já vou direto nele
+
+<img width="1220" height="513" alt="Captura de tela 2025-12-02 222230" src="https://github.com/user-attachments/assets/c3c07acd-743c-47bf-8a02-cb4290c5d17c" />
+
+O cookie vale: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D", mas no final tem os caracters %3D, oque normalmente significa "=" na base64.
+
+Corrigindo fica: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg="
+
+**FLAG:** yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
 
