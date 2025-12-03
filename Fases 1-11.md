@@ -296,3 +296,8 @@ O cookie vale: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D", mas
 
 Corrigindo fica: "HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg="
 
+
+
+## Conclusão
+
+O desafio Natas é um dos melhores jeitos de estudar segurança ofensiva, permitindo aprender coisas novas e mais complexas a cada fase que se avança, sempre apresentando uma nova vulnerabilidade para ser explorada. Contudo, é extremamente necessário estudar cybersec além do desafio, pois assim é possível entender o que cada parte do CTF significa e saber como usar as vulnerabilidades a seu favor.
